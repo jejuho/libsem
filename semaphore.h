@@ -43,8 +43,9 @@ typedef union {
 } sem_t;
 
 
-
-__BEGIN_DECLS
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /* Initialize semaphore object SEM to VALUE.  If PSHARED then share it
    with other processes.  */
@@ -77,6 +78,8 @@ extern int sem_post (sem_t *__sem) ;
 /* Get current value of SEM and store it in *SVAL.  */
 extern int sem_getvalue (sem_t *__sem, int *__sval);
 
-__END_DECLS
+#ifdef __cplusplus
+}
+#endif
 
 #endif	/* semaphore.h */

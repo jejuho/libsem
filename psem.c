@@ -102,8 +102,8 @@ static void __psem_list_destruct( void )
 					
 					Permit();
 					do {
-						ts.ts_sec = time(NULL) + 120;
-						ts.ts_nsec = 1000;
+						ts.tv_sec = time(NULL) + 120;
+						ts.tv_nsec = 1000;
 						
 					} while(sem_timedwait((sem_t *)pn->sem,&ts));
 					Forbid();

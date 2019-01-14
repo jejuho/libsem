@@ -79,13 +79,12 @@ enum {
 extern const unsigned long _PSEM_MAGIC;
 extern struct MinList *__psem_list;
 
-__BEGIN_DECLS
 extern void psem_list_add(psem_t *sem);
 extern psem_t *psem_init(const char *name, int shared, unsigned int value);
 extern void psem_destroy(psem_t *sem);
 extern char *psem_name(const char *name,char *out,unsigned len);
 
-extern __inline int psem_trywait(psem_t *sem)
+__inline int psem_trywait(psem_t *sem)
 {
 	ENTER();
 	POINTER(sem);
@@ -106,7 +105,7 @@ extern __inline int psem_trywait(psem_t *sem)
 	return -1;
 }
 
-extern __inline int psem_wait(psem_t *sem)
+__inline int psem_wait(psem_t *sem)
 {
 	ENTER();
 	POINTER(sem);
@@ -125,7 +124,7 @@ extern __inline int psem_wait(psem_t *sem)
 }
 
 // get the correct psem pointer...
-extern __inline psem_t *sem2psem(sem_t *sem)
+__inline psem_t *sem2psem(sem_t *sem)
 {
 	psem_t *psem = NULL;
 	
@@ -148,7 +147,5 @@ extern __inline psem_t *sem2psem(sem_t *sem)
 	
 	return(psem);
 }
-
-__END_DECLS
 
 #endif /* AMIGASF_SEMAPHORE_H */

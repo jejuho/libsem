@@ -4,7 +4,7 @@ ARCH	= m68k-amigaos
 ARCHOPT	= -m68020-60 -msoft-float
 ARCHTAG	= 
 CC	= $(ARCH)-gcc
-CFLAGS	= -O3 -fomit-frame-pointer $(ARCHOPT) -I. -W -Wall $(UFLAGS)
+CFLAGS	= -mcrt=clib2 -O3 -fomit-frame-pointer $(ARCHOPT) -I. -W -Wall $(UFLAGS)
 OBJDIR	= .objs_$(ARCH)_$(ARCHTAG)
 AR	= $(ARCH)-ar
 RANLIB	= $(ARCH)-ranlib

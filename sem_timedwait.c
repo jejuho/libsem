@@ -26,7 +26,7 @@ int sem_timedwait (sem_t *__sem, const struct timespec *__abstime)
 	if(psem_trywait(sem) == 0)
 		return 0;
 	
-	sec = (time(NULL) - __abstime->ts_sec);
+	sec = (time(NULL) - __abstime->tv_sec);
 	
 	while(sec > 0)
 	{
